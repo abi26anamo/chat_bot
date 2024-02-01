@@ -18,7 +18,7 @@ const Sidebar = ({
         } rounded-md flex justify-between p-5 text-white`}
       >
         <p>Conversations</p>
-        <img src="./static/images/E add 13.png" alt="prof" />
+        <img src="./static/images/add.png" alt="prof" />
       </div>
       <div className="bg-[#F8F9FA] mt-3 min-h-[72vh] shadow-md">
         {conversations.map((conve) => (
