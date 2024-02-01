@@ -31,7 +31,7 @@ const Conversations = () => {
     setTimeout(() => {
       selectedConversation?.message?.push(dummyMessage);
       setLoading(false);
-    }, 3000);
+    }, 2000);
   };
 
   const handleInput = () => {
