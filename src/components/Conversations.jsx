@@ -37,7 +37,7 @@ const Conversations = () => {
   };
 
   const handleInput = () => {
-    if (inputValue && selectedOption) {
+    if (inputValue) {
       selectedConversation.message.push({
         sender: "user",
         message: inputValue,
