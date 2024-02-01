@@ -6,7 +6,7 @@
 
 1. Clone the Repository: 
     ```bash
-    git clone https://github.com/your/repository.git
+    git clone https://github.com/abi26anamo/chat_bot.git
     ```
 
 2. Navigate to the Project Directory: 
