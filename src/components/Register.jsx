@@ -8,16 +8,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
-const user = {
-  email: "addaa@gmail.com",
-  password: "password123",
-};
 
 const Register = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm({
     resolver: yupResolver(loginSchema),
   });
@@ -170,12 +165,11 @@ const Register = () => {
                     Sign Up
                   </button>
                   <div className="flex mt-10 text-sm">
-                    <a
-                      href="#"
+                    <div
                       className="font-semibold text-[#15ABFF] hover:text-indigo-500"
                     >
                       Do you have an account? <Link to="../login">Log In</Link>
-                    </a>
+                    </div>
                   </div>
                 </div>
               </form>

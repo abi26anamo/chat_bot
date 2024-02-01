@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const user = {
-  email: "addaa@gmail.com",
+  email: "adamant@gmail.com",
   password: "password123",
 };
 const Login = () => {
@@ -21,8 +21,6 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-    reset,
   } = useForm({
     resolver: yupResolver(loginSchema),
   });
@@ -164,9 +162,9 @@ const Login = () => {
                     Log In
                   </button>
                   <div className="flex mt-10 text-sm">
-                    <a className="font-semibold text-[#15ABFF] hover:text-indigo-500">
+                    <div className="font-semibold text-[#15ABFF] hover:text-indigo-500">
                       Don't have an account? <Link to="/register">Sign Up</Link>
-                    </a>
+                    </div>
                   </div>
                 </div>
               </form>
