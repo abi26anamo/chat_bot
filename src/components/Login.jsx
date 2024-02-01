@@ -1,4 +1,4 @@
-import React, { useContext,useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../schemas";
@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../Context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import {  PulseLoader } from "react-spinners";
 
 const user = {
   email: "adamant@gmail.com",
@@ -15,38 +16,46 @@ const user = {
 };
 const Login = () => {
   const { login } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
+
   const [showPassword, setShowPassword] = useState(false);
   const [invalidCrediential, setInvalidCrediential] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-  } = useForm({
+  const { register, handleSubmit,formState:{errors} } = useForm({
     resolver: yupResolver(loginSchema),
   });
   const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    if (data.email === user.email && data.password === user.password) {
-      login({
-        email: "ad@gmail.com",
-        password: "password123",
-      });
-      toast.success("Login Successfull!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      setTimeout(() => {
-        navigate("/conversation");
-      }, 3000);
-    } else {
-      setInvalidCrediential(true);
+  const onSubmit = async (data) => {
+    setLoading(true);
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      if (data.email === user.email && data.password === user.password) {
+        login({
+          email: "ad@gmail.com",
+          password: "password123",
+        });
+        toast.success("Login Successfull!", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        setTimeout(() => {
+          navigate("/conversation");
+        }, 3000);
+      } else {
+        setInvalidCrediential(true);
+      }
+    } catch (error) {
+      console.log("Login failed", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -139,6 +148,11 @@ const Login = () => {
                       )}
                     </button>
                   </div>
+                  {errors.password && (
+                    <p className="text-red-500 text-sm">
+                      {errors.password.message}
+                    </p>
+                  )}
                   {invalidCrediential && (
                     <p className="pt-2 text-red-500 text-sm">
                       Wrong email or password
@@ -159,7 +173,11 @@ const Login = () => {
                     type="submit"
                     className="flex w-full justify-center rounded-md bg-[#15ABFF] px-3 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
-                    Log In
+                    {loading ? (
+                      <PulseLoader color="white" loading={loading} size={20} />
+                    ) : (
+                      "Login"
+                    )}
                   </button>
                   <div className="flex mt-10 text-sm">
                     <div className="font-semibold text-[#15ABFF] hover:text-indigo-500">
@@ -172,7 +190,11 @@ const Login = () => {
           </div>
         </div>
         <div className="w-[65%] h-[100vh] hidden md:flex">
-          <img src="./static/images/home.png" className="h-full w-full" alt="" />
+          <img
+            src="./static/images/home.png"
+            className="h-full w-full"
+            alt=""
+          />
         </div>
       </div>
       <ToastContainer position="top-right" autoClose={5000} />
@@ -180,4 +202,4 @@ const Login = () => {
   );
 };
 
-export default Login;        
+export default Login;

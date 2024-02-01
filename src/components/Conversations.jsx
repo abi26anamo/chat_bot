@@ -10,7 +10,6 @@ const options = ["Option A", "Option B", "Option C", "Option D"];
 
 const Conversations = () => {
   const { logout } = useContext(AuthContext);
-  const [selectedOption, setSelectedOption] = useState();
   const [selectedConversation, setSelectedConversation] = useState(
     conversations[0]
   );
@@ -19,7 +18,6 @@ const Conversations = () => {
   const [isOpen, setOpen] = useState(false);
   const navigate = useNavigate();
   const setOption = (option) => {
-    setSelectedOption(option);
     selectedConversation?.message?.push({ sender: "user", message: option });
     selectedConversation.conversationStarted = true;
 
@@ -227,4 +225,4 @@ const Conversations = () => {
   );
 };
 
-export default Conversations;      
+export default Conversations;

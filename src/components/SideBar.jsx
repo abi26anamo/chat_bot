@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../Context";
 
 const Sidebar = ({
-  conversations,
   selectedConversation,
   isOpen,
   handleConversationChange,
 }) => {
+  const { addConversation, removeConversation, conversations } =
+    useContext(AuthContext);
+  const adConversation = () => {
+    addConversation({
+      id: conversations.length + 1,
+      name: "abel",
+      convname: `conversation`,
+      message: [{ sender: "chatbot", message: "How can I help you today?" }],
+      conversationStarted: false,
+    });
+  };
+
+  const handleRemoveConversation = (id) => {
+    removeConversation(id);
+  };
+
   return (
     <div
       className={`w-[25%]  rounded-md h-full md:block ${
@@ -18,7 +34,12 @@ const Sidebar = ({
         } rounded-md flex justify-between p-5 text-white`}
       >
         <p>Conversations</p>
-        <img src="./static/images/add.png" alt="prof" />
+        <img
+          onClick={adConversation}
+          src="./static/images/add.png"
+          alt="prof"
+          className="cursor-pointer"
+        />
       </div>
       <div className="bg-[#F8F9FA] mt-3 min-h-[72vh] shadow-md">
         {conversations.map((conve) => (
@@ -31,8 +52,12 @@ const Sidebar = ({
                 : "bg-[#DEE1E6] text-[#171A1F]"
             } rounded-md flex justify-between p-5 my-2 cursor-pointer`}
           >
-            <p>{conve.convname}</p>{" "}
-            <img src="./static/images/trash.png" alt="" />
+            <p>{conve.convname + " " + conve.id}</p>{" "}
+            <img
+              onClick={() => handleRemoveConversation(conve.id)}
+              src="./static/images/trash.png"
+              alt=""
+            />
           </div>
         ))}
       </div>
@@ -40,4 +65,4 @@ const Sidebar = ({
   );
 };
 
-export default Sidebar;   
+export default Sidebar;
