@@ -29,7 +29,7 @@ const Login = () => {
   const onSubmit = (data) => {
     if (data.email === user.email && data.password === user.password) {
       login({
-        email: "addaa@gmail.com",
+        email: "ad@gmail.com",
         password: "password123",
       });
       toast.success("Login Successfull!", {
@@ -172,7 +172,7 @@ const Login = () => {
           </div>
         </div>
         <div className="w-[65%] h-[100vh] hidden md:flex">
-          <img src="./images/image 129.png" className="h-full w-full" alt="" />
+          <img src="./static/images/image 129.png" className="h-full w-full" alt="" />
         </div>
       </div>
       <ToastContainer position="top-right" autoClose={5000} />

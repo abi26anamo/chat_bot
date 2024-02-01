@@ -160,7 +160,7 @@ const ResetPassword = () => {
           </div>
         </div>
         <div className="w-[65%] hidden md:flex h-[100vh]">
-          <img src="./images/image 129.png" className="h-full w-full" alt="" />
+          <img src="./static/images/image 129.png" className="h-full w-full" alt="" />
         </div>
       </div>
       <ToastContainer position="top-right" autoClose={5000} />
