@@ -27,7 +27,7 @@ const Conversations = () => {
       sender: "chatbot",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pharetra suscipit turpis, sed pellentesque arcu sollicitudin ut. Morbi metus dui, scelerisque id consectetur quis, accumsan id ipsum.",
-      url: "./static/images/Image 128.png",
+      url: "./static/images/randompicture.png",
     };
     setLoading(true);
     setTimeout(() => {
@@ -105,13 +105,13 @@ const Conversations = () => {
             <div className="bg-[#15ABFF] rounded-md flex  justify-between items-center  p-3 text-white">
               <div className="flex gap-4 items-center">
                 {!isOpen && (
-                  <img src="./static/images/Image 126.png" alt="profimage" />
+                  <img src="./static/images/chatbot.png" alt="profimage" />
                 )}
                 {!isOpen && <p>Chatbot</p>}
                 {isOpen && <p>Conversations</p>}
               </div>
               <div className="md:hidden flex items-center gap-5">
-                {isOpen && <img src="./static/images/E add 13.png" alt="addImage" />}
+                {isOpen && <img src="./static/images/add.png" alt="addImage" />}
                 <Hamburger
                   toggled={false}
                   onToggle={sidebarToggle}
@@ -139,7 +139,7 @@ const Conversations = () => {
                         <div className="flex gap-5 items-end">
                           <img
                             className="flex justify-self-end"
-                            src="./static/images/Image 126.png"
+                            src="./static/images/chatbot.png"
                             alt=""
                           />
                           <div className=" w-[60%] md:w-[50%]">
@@ -160,7 +160,7 @@ const Conversations = () => {
                             <img src={message.url} alt="" />
                           </div>
                           <img
-                            src="./static/images/Image 127.png"
+                            src="./static/images/user.png"
                             alt="messageImage"
                           />
                         </div>
@@ -172,7 +172,7 @@ const Conversations = () => {
                     <div className="flex gap-5 items-end">
                       <img
                         className="flex justify-self-end"
-                        src="./static/images/Image 126.png"
+                        src="./static/images/chatbot.png"
                         alt=""
                       />{" "}
                       <div className="w-fit">
@@ -218,7 +218,7 @@ const Conversations = () => {
               onClick={() => handleInput()}
               className="w-10 h-10 rounded-[50%] mr-5 bg-[#6D31ED] flex justify-center items-center"
             >
-              <img src="./static/images/Send message 1.png" alt="" />
+              <img src="./static/images/message.png" alt="" />
             </button>
           </div>
         </div>
@@ -227,4 +227,4 @@ const Conversations = () => {
   );
 };
 
-export default Conversations;
+export default Conversations; 
