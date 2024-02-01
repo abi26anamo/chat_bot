@@ -31,7 +31,7 @@ const Register = () => {
     }
     try {
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      toast.success("user Registeration Successfull!", {
+      toast.success("Registeration Successfull!", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
