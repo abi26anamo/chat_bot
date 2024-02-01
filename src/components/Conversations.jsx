@@ -100,7 +100,7 @@ const Conversations = () => {
           selectedConversation={selectedConversation}
           handleConversationChange={handleConversationChange}
         />
-        <div className="w-full flex flex-col">
+        <div className="sm:w-[70%] lg:w-full flex flex-col">
           <div className="rounded-md shadow-lg h-full">
             <div className="bg-[#15ABFF] rounded-md flex  justify-between items-center  p-3 text-white">
               <div className="flex gap-4 items-center">
@@ -227,4 +227,4 @@ const Conversations = () => {
   );
 };
 
-export default Conversations; 
+export default Conversations;      

@@ -8,7 +8,7 @@ const Sidebar = ({
 }) => {
   return (
     <div
-      className={`w-[25%] rounded-md h-full md:block ${
+      className={`w-[25%]  rounded-md h-full md:block ${
         isOpen ? "w-[75%] mt-2" : "hidden"
       }`}
     >
