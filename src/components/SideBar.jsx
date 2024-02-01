@@ -32,7 +32,7 @@ const Sidebar = ({
             } rounded-md flex justify-between p-5 my-2 cursor-pointer`}
           >
             <p>{conve.convname}</p>{" "}
-            <img src="./static/images/trash 2.png" alt="" />
+            <img src="./static/images/trash.png" alt="" />
           </div>
         ))}
       </div>
