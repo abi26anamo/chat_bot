@@ -142,7 +142,7 @@ const Conversations = () => {
                             src="./static/images/Image 126.png"
                             alt=""
                           />
-                          <div className="w-[50%]">
+                          <div className=" w-[60%] md:w-[50%]">
                             <div className="w-fit">
                               <p className="mt-4 my-3 bg-[#F0F9FF] p-2 rounded-3xl text-[#15ABFF]">
                                 {message.message}
