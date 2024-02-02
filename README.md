@@ -25,13 +25,13 @@
     ```
 
 5. Register and Login: 
-    - Use the email address `adamant@gmail.com` and the password `Password123` to register and login.
+    - Use the email address `adamant@gmail.com` and the password `password123` to register and login.
 
 ### Project Description
 
 This project is a frontend chat application designed to simulate conversations with a mock chat bot. Users can register and login using the provided credentials. Once logged in, they can interact with the chat bot by sending messages and receiving responses.
 
-These chatbot respond with "finished" evertime the user time the message and submit it. And also there are different conversation rooms and inside each conversation room , there are different options and when user select the option the chat bot respond with long "lorem ipsum" text and random picture.
+These chatbot respond with "finished" evertime the user type the message and submit it. And also there are different conversation rooms and inside each conversation room , there are different options and when user select the option the chat bot respond with long "lorem ipsum" text and random picture.
 
 The UI of the application is reponsive for mobile, tablet, desktop and etc
 
