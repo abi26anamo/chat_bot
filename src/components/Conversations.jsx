@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import SyncLoader from "react-spinners/SyncLoader";
-import { conversations } from "../utils/utils";
 import Sidebar from "./SideBar";
 import Hamburger from "hamburger-react";
 import { AuthContext } from "../Context";
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 const options = ["Option A", "Option B", "Option C", "Option D"];
 
 const Conversations = () => {
+  const { addConversation, conversations } = useContext(AuthContext);
   const { logout } = useContext(AuthContext);
   const [selectedConversation, setSelectedConversation] = useState(
     conversations[0]
@@ -32,6 +31,16 @@ const Conversations = () => {
       selectedConversation?.message?.push(dummyMessage);
       setLoading(false);
     }, 2000);
+  };
+
+  const adConversation = () => {
+    addConversation({
+      id: conversations.length + 1,
+      name: "abel",
+      convname: `conversation`,
+      message: [{ sender: "chatbot", message: "How can I help you today?" }],
+      // conversationStarted: false,
+    });
   };
 
   const handleInput = () => {
@@ -98,8 +107,8 @@ const Conversations = () => {
           selectedConversation={selectedConversation}
           handleConversationChange={handleConversationChange}
         />
-        <div className="sm:w-[70%] lg:w-full flex flex-col">
-          <div className="rounded-md shadow-lg h-full">
+        <div className="w-full custom-md:w-[70%] custom-lg:w-full flex flex-col">
+          <div className="w-full rounded-md shadow-lg h-full">
             <div className="bg-[#15ABFF] rounded-md flex  justify-between items-center  p-3 text-white">
               <div className="flex gap-4 items-center">
                 {!isOpen && (
@@ -109,14 +118,25 @@ const Conversations = () => {
                 {isOpen && <p>Conversations</p>}
               </div>
               <div className="md:hidden flex items-center gap-5">
-                {isOpen && <img src="./static/images/add.png" alt="addImage" />}
-                <Hamburger
+                {isOpen && (
+
+                  <img
+                    className="cursor-pointer"
+                    onClick={adConversation}
+                    src="./static/images/add.png"
+                    alt="addImage"
+                  />
+                )}
+                
+              </div>
+              <div className="md:hidden flex items-center gap-5">
+              <Hamburger
                   toggled={false}
                   onToggle={sidebarToggle}
                   hideOutline={true}
                 />
               </div>
-            </div>
+              </div>
             {isOpen ? (
               <div className="md:hidden">
                 <Sidebar

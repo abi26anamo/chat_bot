@@ -80,4 +80,4 @@ const AuthProvider = ({ children }) => {
   );
 };
 
-export { AuthProvider, AuthContext };
+export { AuthProvider, AuthContext };    
